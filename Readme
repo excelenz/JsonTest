@@ -15,3 +15,6 @@ Make sure that the message is not older than 7 days
 Msg type is one of the following (0000,83,84)
 Messages that pass all validations should be placed in a corresponding list (list per type)
 Messages that do not pass the validation (or fail for any reason) should be placed in a separate list with the failure reason (text)
+
+
+ alias push="git add .;git commit -m 'ff'; git push origin master"
