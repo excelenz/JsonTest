@@ -1,0 +1,6 @@
+{
+    "transmitter": "abc:123456",
+    "msg_time": "2019-03-15T10:26:37.951Z",
+    "msg_type": 83,
+    "message": "Hello World"
+}
