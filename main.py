@@ -6,7 +6,7 @@ import re
 class ParserJson:
     def __init__(self):
         self.logging()
-        self.DEBUG=0
+        self.DEBUG=1
 
     def logging(self):
         logging.basicConfig(filename='telegram.log',format="%(asctime)s:  %(message)s \n",datefmt='%Y-%m-%d,%H:%M',level=logging.INFO)
@@ -19,12 +19,12 @@ class ParserJson:
             data= self.input_json()
         else:
             return "not a valid json"
-        if self.validation(data):
-            return True
-        else:
-            return "not a valid data in json"
+        if not self.is_valid_type(data):
+            return "not a valid type in json"
+        if not self.is_valid_transmitter(data):
+            return "not a valid transmitter in json"
 
-    def validation(self,json):
+    def is_valid_type(self,json):
         try:
             if json['msg_type'] in (0000,83,84):
                 return True
@@ -32,9 +32,13 @@ class ParserJson:
                 return False
         except:
             return False
+
+    def is_valid_transmitter(self, json):
         try:
             transmitter=json['transmitter']
-            if re.match(r"^[a-zA-Z]{3}:\d$", transmitter):
+            print(transmitter)
+            if re.match(r"^[a-zA-Z]{3}", transmitter):
+                print(transmitter)
                 return True
             else:
                 return False

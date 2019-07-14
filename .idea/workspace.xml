@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2c73af9-87b8-476a-abc2-f4cbec19fe5b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telegram.log" afterPath="$PROJECT_DIR$/telegram.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,17 +19,17 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="23" />
+            <state relative-caret-position="391">
+              <caret line="36" column="12" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
               <folding>
                 <element signature="e#19#30#0" expanded="true" />
-                <marker date="1563112015667" expanded="true" signature="74:1601" ph="..." />
-                <marker date="1563112015667" expanded="true" signature="98:141" ph="..." />
-                <marker date="1563112015667" expanded="true" signature="488:517" ph="..." />
-                <marker date="1563112015667" expanded="true" signature="1628:1686" ph="..." />
+                <marker date="1563113077701" expanded="true" signature="74:1779" ph="..." />
+                <marker date="1563113077701" expanded="true" signature="98:141" ph="..." />
+                <marker date="1563113077701" expanded="true" signature="488:517" ph="..." />
+                <marker date="1563113077701" expanded="true" signature="1806:1864" ph="..." />
               </folding>
             </state>
           </provider>
@@ -43,7 +45,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="data.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
@@ -62,8 +64,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Readme" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/data.txt" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -328,20 +330,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="23" />
-          <folding>
-            <element signature="e#19#30#0" expanded="true" />
-            <marker date="1563112015667" expanded="true" signature="74:1601" ph="..." />
-            <marker date="1563112015667" expanded="true" signature="98:141" ph="..." />
-            <marker date="1563112015667" expanded="true" signature="488:517" ph="..." />
-            <marker date="1563112015667" expanded="true" signature="1628:1686" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Readme">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -355,6 +343,20 @@
         <state relative-caret-position="17">
           <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="36" column="12" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+          <folding>
+            <element signature="e#19#30#0" expanded="true" />
+            <marker date="1563113077701" expanded="true" signature="74:1779" ph="..." />
+            <marker date="1563113077701" expanded="true" signature="98:141" ph="..." />
+            <marker date="1563113077701" expanded="true" signature="488:517" ph="..." />
+            <marker date="1563113077701" expanded="true" signature="1806:1864" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
