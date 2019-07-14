@@ -2,7 +2,7 @@
 import json
 import logging
 import re
-import datetime
+from datetime import datetime,timezone,timedelta
 
 class ParserJson:
     def __init__(self):
@@ -10,16 +10,27 @@ class ParserJson:
         logging.basicConfig(filename='telegram.log',format="%(asctime)s:  %(message)s \n",datefmt='%Y-%m-%d,%H:%M',level=logging.INFO)
         self.logger = logging.getLogger(__name__)
         self.logger.info(__name__)
+        self.tz = timedelta(hours=3)
+        self.timegap = datetime.now()-timedelta(days=7)
 
     def main(self):
         data= self.input_json()
+
+        ###
+        #
+        # Failed messages should be placed in a separate list with the failure reason
+        # We will sort only by one condition (it can fail more than one validation)
+        #
+        ####
+
         if not data:
             return "not a valid json"
         if not self.is_valid_type(data):
-            return "not a valid type in json"
+            return "not a valid type in message"
         if not self.is_valid_transmitter(data):
-            return "not a valid transmitter in json"
-        self.is_valid_time(data)
+            return "not a valid transmitter in message"
+        if not self.is_valid_time(data):
+            return "not a fresh time in message"
         return data
 
     def is_valid_type(self,json):
@@ -29,6 +40,8 @@ class ParserJson:
             else:
                 return False
         except:
+            if self.DEBUG:
+                raise
             return False
 
     def is_valid_transmitter(self, json):
@@ -45,15 +58,25 @@ class ParserJson:
                 print("not match %s" % transmitter)
                 return False
         except:
+            if self.DEBUG:
+                raise
             return False
 
     def is_valid_time(self,json):
         try:
-            msg_time=json['msg_time']
-            "2019-03-15T10:26:37.951Z"
-            israel_time=datetime.datetime.strptime(msg_time, '%Y-%m-%dT%H:%M:%S.%fZ')
-            print(israel_time)
+            msg_time_original=json['msg_time']
+            msg_time=datetime.strptime(msg_time_original, '%Y-%m-%dT%H:%M:%S.%fZ')
+            if self.timegap<(msg_time + self.tz) and (msg_time + self.tz)<=datetime.now():
+                self.logger.info("the message is fresh %s" % self.timegap)
+                print("the message is fresh %s" % self.timegap)
+                return True
+            else:
+               self.logger.info("time is rotten %s" % msg_time)
+               print("time is rotten %s" % msg_time)
+               return False
         except:
+            if self.DEBUG:
+                raise
             return False
 
 
