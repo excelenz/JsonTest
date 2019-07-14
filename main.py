@@ -23,6 +23,7 @@ class ParserJson:
             return "not a valid type in json"
         if not self.is_valid_transmitter(data):
             return "not a valid transmitter in json"
+        return data
 
     def is_valid_type(self,json):
         try:
@@ -36,11 +37,13 @@ class ParserJson:
     def is_valid_transmitter(self, json):
         try:
             transmitter=json['transmitter']
-            print(transmitter)
-            if re.match(r"^[a-zA-Z]{3}", transmitter):
+            pattern='^([a-zA-Z]{3}):(\d)'
+            match = re.search(pattern, transmitter)
+            if match:
                 print(transmitter)
                 return True
             else:
+                print("not match %s" % transmitter)
                 return False
         except:
             return False
