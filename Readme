@@ -10,6 +10,7 @@ All the messages in the list are plain text, but should be with the following JS
 
 Please write a python code that goes over all the messages in the list, and does the following:
 Make sure the JSON is valid
+
 Make sure the transmitter has the following format: “<3 characters>:<numeric value>”
 Make sure that the message is not older than 7 days
 Msg type is one of the following (0000,83,84)

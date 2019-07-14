@@ -1,11 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import json
 import logging
 
 class ParserJson:
     def __init__(self):
         self.logging()
-        self.DEBUG=1
+        self.DEBUG=0
 
     def logging(self):
         logging.basicConfig(filename='telegram.log',format="%(asctime)s:  %(message)s \n",datefmt='%Y-%m-%d,%H:%M',level=logging.INFO)
@@ -14,7 +14,23 @@ class ParserJson:
         logger.info(__name__)
 
     def main(self):
-        return self.input_json()
+        if self.input_json():
+            return self.input_json()
+        else:
+            return "not a valid json"
+
+    def transmitter(self):
+        re.match
+
+    def validation(self,json):
+        try:
+            if json['msg_type'] in (0000,83,84):
+                return True
+            else:
+                return False
+        except:
+            return False
+
 
     def input_json(self):
         with open('data.txt') as json_file:
@@ -31,5 +47,5 @@ class ParserJson:
 
 if __name__== '__main__':
     json_object=ParserJson()
-    json_object.main()
+    print(json_object.main())
 
