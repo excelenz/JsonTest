@@ -20,3 +20,12 @@ Messages that do not pass the validation (or fail for any reason) should be plac
 https://en.wikipedia.org/wiki/ISO_8601
 
 alias push="git add .;git commit -m 'ff'; git push origin master"
+
+
+
+        ###
+        #
+        # Failed messages should be placed in a separate list with the failure reason
+        # We will sort only by one condition (it can fail more than one validation)
+        #
+        ####

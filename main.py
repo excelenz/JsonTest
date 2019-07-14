@@ -15,15 +15,9 @@ class ParserJson:
 
     def main(self):
         data= self.input_json()
-
-        ###
-        #
-        # Failed messages should be placed in a separate list with the failure reason
-        # We will sort only by one condition (it can fail more than one validation)
-        #
-        ####
-
+        bad_list=[]
         if not data:
+
             return "not a valid json"
         if not self.is_valid_type(data):
             return "not a valid type in message"
