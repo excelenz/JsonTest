@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import json
 import logging
+import re
 
 class ParserJson:
     def __init__(self):
@@ -15,12 +16,13 @@ class ParserJson:
 
     def main(self):
         if self.input_json():
-            return self.input_json()
+            data= self.input_json()
         else:
             return "not a valid json"
-
-    def transmitter(self):
-        re.match
+        if self.validation(data):
+            return True
+        else:
+            return "not a valid data in json"
 
     def validation(self,json):
         try:
@@ -30,7 +32,14 @@ class ParserJson:
                 return False
         except:
             return False
-
+        try:
+            transmitter=json['transmitter']
+            if re.match(r"^[a-zA-Z]{3}:\d$", transmitter):
+                return True
+            else:
+                return False
+        except:
+            return False
 
     def input_json(self):
         with open('data.txt') as json_file:
