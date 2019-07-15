@@ -14,11 +14,10 @@ class ParserJson:
         self.timegap = datetime.now()-timedelta(days=7)
 
     def main(self,data_list):
-        for data1 in data_list:
-            print(data1)
-            data='{}'.format(data1)
-            print(data)
-            if not self.is_valid_json(data):
+        for data in data_list:
+            item=data
+            print(item)
+            if not self.is_valid_json(item):
                 return "not a valid json"
             if not self.is_valid_type(data):
                 return "not a valid type in message"
@@ -88,8 +87,8 @@ class ParserJson:
 
     def input_from_file(self):
         try:
-            with open('data.txt') as file:
-                print(list(file))
+            lineList = [line.rstrip('\n') for line in open('data.txt')]
+            return lineList
         except Exception as e:
             self.logger.info("ERROR ON LOAD file %s" % e)
             if self.DEBUG:
@@ -99,14 +98,8 @@ class ParserJson:
 
 if __name__== '__main__':
     json_object=ParserJson()
-    data_list=[{
-    "transmitter": "abc:123456",
-    "msg_time": "2019-03-15T10:26:37.951Z",
-    "msg_type": 83,
-    "message": "Hello World"},{
-    "transmitter": "abc:123456",
-    "msg_time": "2019-07-13T10:26:37.951Z",
-    "msg_type": 83,
-    "message": "Hello World"}]
+    #data_list=['{"transmitter": "abc:123456","msg_time": "2019-03-15T10:26:37.951Z","msg_type": 83,"message": "Hello World"}','{"transmitter": "abc:123456","msg_time": "2019-07-13T10:26:37.951Z","msg_type": 83,"message": "Hello World"}']
+    data_list=json.dumps(json_object.input_from_file())
+    print(data_list)
     print(json_object.main(data_list))
 
