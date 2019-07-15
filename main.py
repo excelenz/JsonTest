@@ -12,30 +12,38 @@ class ParserJson:
         self.logger.info(__name__)
         self.tz = timedelta(hours=3)
         self.timegap = datetime.now()-timedelta(days=7)
+        self.my_list={'0000':[],'83':[],'84':[]}
+        self.bad_list={'transmitter':[],'time':[],'type':[]}
 
     def main(self):
+
         data_list = json_object.input_from_file()
         for item in data_list['datas']:
             json_object.validation(item)
+        print("\n\ngood list ************\n")
+        print(self.my_list)
+        print("\n\nBad list ************\n")
+        print(self.bad_list)
         return True
 
     def validation(self,data):
-        my_list=[]
         if not self.is_valid_transmitter(data):
+            self.bad_list['transmitter'].append(data)
             return "not a valid transmitter in message"
         if not self.is_valid_time(data):
+            self.bad_list['time'].append(data)
             return "not a fresh time in message"
         if not self.is_valid_type(data):
-            self.json_output(data, "fail", "not a valid type in message")
+            self.bad_list['type'].append(data)
             return "not a valid type in message"
         else:
-            my_list.append(data)
-            print(mylist)
+            type=data['msg_type']
+            self.my_list['{}'.format(type)].append(data)
         return 1
 
     def is_valid_type(self,json):
         try:
-            if json['msg_type'] in (0000,83,84):
+            if json['msg_type'] in ('0000',83,84):
                 return json['msg_type']
             else:
                 return False
