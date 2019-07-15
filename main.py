@@ -14,18 +14,20 @@ class ParserJson:
         self.timegap = datetime.now()-timedelta(days=7)
 
     def main(self):
-        data= self.input_json()
-        bad_list=[]
-        if not data:
 
-            return "not a valid json"
-        if not self.is_valid_type(data):
-            return "not a valid type in message"
-        if not self.is_valid_transmitter(data):
-            return "not a valid transmitter in message"
-        if not self.is_valid_time(data):
-            return "not a fresh time in message"
-        return data
+        items=self.input_from_file()
+        print(items)
+        for data in items:
+            print(data)
+            if not self.is_valid_json(data):
+                return "not a valid json"
+            if not self.is_valid_type(data):
+                return "not a valid type in message"
+            if not self.is_valid_transmitter(data):
+                return "not a valid transmitter in message"
+            if not self.is_valid_time(data):
+                return "not a fresh time in message"
+            return data
 
     def is_valid_type(self,json):
         try:
@@ -74,18 +76,29 @@ class ParserJson:
             return False
 
 
-    def input_json(self):
-        with open('data.txt') as json_file:
-            try:
-                data = json.load(json_file)
-                self.logger.info("Success on open file")
-                return data
-            except Exception as e:
-                self.logger.info("ERROR ON LOAD %s" % e)
-                if self.DEBUG:
-                    raise
-                return False
-        return True
+    def is_valid_json(self,json):
+        try:
+            data = json.load(json)
+            self.logger.info("Success on open json")
+            return data
+        except Exception as e:
+            self.logger.info("ERROR ON LOAD json %s" % e)
+            if self.DEBUG:
+                raise
+            return False
+
+    def input_from_file(self):
+        try:
+            with open('data.txt') as file:
+
+                print(list(file))
+
+        except Exception as e:
+            self.logger.info("ERROR ON LOAD file %s" % e)
+            if self.DEBUG:
+                raise
+            return False
+
 
 if __name__== '__main__':
     json_object=ParserJson()

@@ -271,3 +271,93 @@
 
 2019-07-15,01:56:  time is rotten 2019-03-15 10:26:37.951000 
 
+2019-07-15,08:06:  __main__ 
+
+2019-07-15,08:06:  ERROR ON LOAD name 'json_file' is not defined 
+
+2019-07-15,08:07:  __main__ 
+
+2019-07-15,08:07:  __main__ 
+
+2019-07-15,08:11:  __main__ 
+
+2019-07-15,08:12:  __main__ 
+
+2019-07-15,08:13:  __main__ 
+
+2019-07-15,08:15:  __main__ 
+
+2019-07-15,08:16:  __main__ 
+
+2019-07-15,08:18:  __main__ 
+
+2019-07-15,08:21:  __main__ 
+
+2019-07-15,08:21:  ERROR ON LOAD json 'str' object has no attribute 'load' 
+
+2019-07-15,08:21:  __main__ 
+
+2019-07-15,08:21:  ERROR ON LOAD json 'str' object has no attribute 'load' 
+
+2019-07-15,08:21:  __main__ 
+
+2019-07-15,08:21:  ERROR ON LOAD json 'str' object has no attribute 'load' 
+
+2019-07-15,08:22:  __main__ 
+
+2019-07-15,08:22:  ERROR ON LOAD json 'str' object has no attribute 'load' 
+
+2019-07-15,08:23:  __main__ 
+
+2019-07-15,08:23:  __main__ 
+
+2019-07-15,08:23:  __main__ 
+
+2019-07-15,08:24:  __main__ 
+
+2019-07-15,08:25:  __main__ 
+
+2019-07-15,08:25:  ERROR ON LOAD file '_io.TextIOWrapper' object is not subscriptable 
+
+2019-07-15,08:26:  __main__ 
+
+2019-07-15,08:28:  __main__ 
+
+2019-07-15,08:28:  __main__ 
+
+2019-07-15,08:29:  __main__ 
+
+2019-07-15,08:30:  __main__ 
+
+2019-07-15,08:30:  ERROR ON LOAD file 'list' object has no attribute 'rstrip' 
+
+2019-07-15,08:30:  __main__ 
+
+2019-07-15,08:30:  ERROR ON LOAD file '_io.TextIOWrapper' object has no attribute 'rstrip' 
+
+2019-07-15,08:30:  __main__ 
+
+2019-07-15,08:31:  __main__ 
+
+2019-07-15,08:31:  ERROR ON LOAD json 'str' object has no attribute 'load' 
+
+2019-07-15,08:31:  __main__ 
+
+2019-07-15,08:31:  ERROR ON LOAD json 'str' object has no attribute 'load' 
+
+2019-07-15,08:32:  __main__ 
+
+2019-07-15,08:32:  __main__ 
+
+2019-07-15,08:32:  __main__ 
+
+2019-07-15,08:32:  ERROR ON LOAD json 'str' object has no attribute 'load' 
+
+2019-07-15,08:35:  __main__ 
+
+2019-07-15,08:36:  __main__ 
+
+2019-07-15,08:37:  __main__ 
+
+2019-07-15,08:37:  __main__ 
+
