@@ -13,24 +13,30 @@ class ParserJson:
         self.tz = timedelta(hours=3)
         self.timegap = datetime.now()-timedelta(days=7)
 
-    def main(self,data_list):
-        for data in data_list:
-            item=data
-            print(item)
-            if not self.is_valid_json(item):
-                return "not a valid json"
-            if not self.is_valid_type(data):
-                return "not a valid type in message"
-            if not self.is_valid_transmitter(data):
-                return "not a valid transmitter in message"
-            if not self.is_valid_time(data):
-                return "not a fresh time in message"
-            return data
+    def main(self):
+        data_list = json_object.input_from_file()
+        for item in data_list['datas']:
+            json_object.validation(item)
+        return True
+
+    def validation(self,data):
+        my_list=[]
+        if not self.is_valid_transmitter(data):
+            return "not a valid transmitter in message"
+        if not self.is_valid_time(data):
+            return "not a fresh time in message"
+        if not self.is_valid_type(data):
+            self.json_output(data, "fail", "not a valid type in message")
+            return "not a valid type in message"
+        else:
+            my_list.append(data)
+            print(mylist)
+        return 1
 
     def is_valid_type(self,json):
         try:
             if json['msg_type'] in (0000,83,84):
-                return True
+                return json['msg_type']
             else:
                 return False
         except:
@@ -74,32 +80,22 @@ class ParserJson:
             return False
 
 
-    def is_valid_json(self,item):
-        try:
-            data = json.load(item)
-            self.logger.info("Success on open json")
-            return data
-        except Exception as e:
-            self.logger.info("ERROR ON LOAD json %s" % e)
-            if self.DEBUG:
-                raise
-            return False
-
     def input_from_file(self):
         try:
-            lineList = [line.rstrip('\n') for line in open('data.txt')]
-            return lineList
+            with open('data.txt','r') as data_list:
+                data = json.loads(data_list.read())
+            return data
         except Exception as e:
             self.logger.info("ERROR ON LOAD file %s" % e)
-            if self.DEBUG:
-                raise
             return False
+
+    def json_output(self,json,key,error):
+        with open("data_file_{}.json".format(key), "w") as write_file:
+            json.dump('"data":"{}","option":"{}"'.format(json,error), write_file)
 
 
 if __name__== '__main__':
     json_object=ParserJson()
-    #data_list=['{"transmitter": "abc:123456","msg_time": "2019-03-15T10:26:37.951Z","msg_type": 83,"message": "Hello World"}','{"transmitter": "abc:123456","msg_time": "2019-07-13T10:26:37.951Z","msg_type": 83,"message": "Hello World"}']
-    data_list=json.dumps(json_object.input_from_file())
-    print(data_list)
-    print(json_object.main(data_list))
+    json_object.main()
+
 

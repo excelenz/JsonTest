@@ -1,3 +1,4 @@
+{"datas":[
 {
     "transmitter": "abc:123456",
     "msg_time": "2019-03-15T10:26:37.951Z",
@@ -16,7 +17,7 @@
 },{
     "transmitter": "abc:123456",
     "msg_time": "2019-07-13T10:26:37.951Z",
-    "msg_type": 0000,
+    "msg_type": "0000",
     "message": "Hello World"
 },{
     "transmitter": "abc:123456",
@@ -29,4 +30,5 @@
     "msg_type": 85,
     "message": "Hello World"
 }
+]}
 
